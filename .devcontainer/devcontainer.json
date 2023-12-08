@@ -1,0 +1,18 @@
+{
+  "name": "python-repo-template.templates.utkusarioglu.com",
+  "dockerComposeFile": [
+    "../.docker/docker-compose.dev.yml",
+    "docker-compose.yml"
+  ],
+  "service": "python-repo-template",
+  "workspaceFolder": "/utkusarioglu-com/templates/python-repo-template",
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#FF0000"
+    }
+  },
+  "extensions": [
+    "ms-python.python"
+  ],
+  "postCreateCommand": "scripts/post-create-command.sh"
+}
