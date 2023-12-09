@@ -1,18 +1,26 @@
 {
-  "name": "python-repo-template.templates.utkusarioglu.com",
+  "name": "brownie-workshop.workshops.utkusarioglu.com",
   "dockerComposeFile": [
     "../.docker/docker-compose.dev.yml",
     "docker-compose.yml"
   ],
-  "service": "python-repo-template",
-  "workspaceFolder": "/utkusarioglu-com/templates/python-repo-template",
-  "settings": {
-    "workbench.colorCustomizations": {
-      "activityBar.background": "#FF0000"
+  "service": "brownie-workshop",
+  "workspaceFolder": "/utkusarioglu-com/workshops/brownie-workshop",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.colorCustomizations": {
+          "activityBar.background": "#FF0000"
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.flake8",
+        "ms-python.black-formatter",
+        "ms-python.vscode-pylance",
+        "tamasfe.even-better-toml"
+      ]
     }
   },
-  "extensions": [
-    "ms-python.python"
-  ],
   "postCreateCommand": "scripts/post-create-command.sh"
 }

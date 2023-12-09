@@ -1,11 +1,12 @@
 version: "3.9"
 
 services:
-  python-repo-template:
-    image: utkusarioglu/python-devcontainer:1.0.14
+  brownie-workshop:
+    # image: utkusarioglu/python-devcontainer:1.0.14
+    image: utkusarioglu/python-devcontainer:experiment-feat-music-sequencer-8
     environment:
-      PYTHONPATH: /utkusarioglu-com/templates/python-repo-template
+      PYTHONPATH: /utkusarioglu-com/workshops/brownie-workshop
     volumes:
       - type: bind
         source: ..
-        target: /utkusarioglu-com/templates/python-repo-template
+        target: /utkusarioglu-com/workshops/brownie-workshop

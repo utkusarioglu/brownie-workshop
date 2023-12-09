@@ -1,5 +1,4 @@
 {
-  "python.formatting.provider": "black",
   "runOnSave.commands": [
     {
       "match": "\\.env(\\.\\w+)?$",
@@ -13,5 +12,7 @@
       "command": "gh secret set -f .env"
     },
   ],
-  "python.analysis.typeCheckingMode": "basic"
+  "python.formatting.provider": "black",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "/home/python/venv/main/bin/python"
 }

@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  python-repo-template:
+  brownie-workshop:
     environment:
       GH_TOKEN: ${GH_TOKEN}
     volumes:
@@ -14,6 +14,6 @@ services:
 
 volumes:
   vscode-extensions:
-    name: python-repo-template-vscode-extensions
+    name: brownie-workshop-vscode-extensions
   vscode-extensions-insiders:
-    name: python-repo-template-vscode-extensions-insiders
+    name: brownie-workshop-vscode-extensions-insiders
