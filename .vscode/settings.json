@@ -12,7 +12,6 @@
       "command": "gh secret set -f .env"
     },
   ],
-  "python.formatting.provider": "black",
   "python.analysis.typeCheckingMode": "basic",
   "python.defaultInterpreterPath": "/home/python/venv/main/bin/python"
 }
