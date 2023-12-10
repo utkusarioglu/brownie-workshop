@@ -1,9 +1,9 @@
 #!/home/python/venv/main/bin/python
 
-from main import main
+from get_sepolia_transactions import main
 
 
 def test_main():
-  response = main()
-  expected = "Hey there"
-  assert(expected == response)
+    response = main()
+    expected = "Hey there"
+    assert expected == response
