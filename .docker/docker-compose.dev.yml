@@ -4,9 +4,30 @@ services:
   brownie-workshop:
     # image: utkusarioglu/python-devcontainer:1.0.14
     image: utkusarioglu/python-devcontainer:experiment-feat-music-sequencer-8
+    container_name: brownie-workshop
     environment:
       PYTHONPATH: /utkusarioglu-com/workshops/brownie-workshop
     volumes:
       - type: bind
         source: ..
         target: /utkusarioglu-com/workshops/brownie-workshop
+
+  brownie-workshop-redis-stack:
+    image: redis/redis-stack:7.2.0-v6-x86_64
+    container_name: brownie-workshop-redis-stack
+    ports:
+      - 6379:6379
+      - 8001:8001
+
+  brownie-workshop-mongodb-community-server:
+    container_name: brownie-workshop-mongodb-community-server
+    image: mongodb/mongodb-community-server:7.0.4-ubuntu2204
+    volumes:
+      - type: bind
+        source: ../config/mongodb
+        target: /config
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME_FILE=/config/MONGODB_INITDB_ROOT_USERNAME_FILE
+      - MONGODB_INITDB_ROOT_PASSWORD_FILE=/config/MONGODB_INITDB_ROOT_PASSWORD_FILE
+    ports:
+      - 27017:27017

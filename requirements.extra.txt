@@ -1,0 +1,6 @@
+web3
+setuptools
+py-solc-x
+celery
+redis
+pymongo
