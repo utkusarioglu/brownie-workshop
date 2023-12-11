@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
 from os import environ
 from celery import Celery
+from src.deploy import deploy_contract
+from src.get_value import get_value
+from src.set_value import set_value
 
 PYTHONPATH = environ.get("PYTHONPATH")
 
@@ -16,20 +19,11 @@ MONGODB_CELERY_RESULTS_DB_NAME = environ.get(
 
 MONGODB_BACKEND_SETTINGS = {
     "database": MONGODB_CELERY_RESULTS_DB_NAME,
-    "taskmeta_collection": "celery",
+    "taskmeta_collection": "sample_contract",
 }
 
 mongodb_result_backend = "".join(
-    [
-        "mongodb://",
-        MONGODB_USERNAME,
-        ":",
-        MONGODB_PASSWORD,
-        "@",
-        MONGODB_URL,
-        "/",
-        MONGODB_CELERY_RESULTS_DB_NAME,
-    ]
+    ["mongodb://", MONGODB_USERNAME, ":", MONGODB_PASSWORD, "@", MONGODB_URL]
 )
 
 app = Celery(
@@ -44,3 +38,18 @@ app = Celery(
 @app.task
 def add(x, y):
     return x + y
+
+
+@app.task
+def deploy_sample_contract():
+    return deploy_contract()
+
+
+@app.task
+def get_sample_value():
+    return get_value()
+
+
+@app.task
+def set_sample_value(val: int):
+    return set_value(val)

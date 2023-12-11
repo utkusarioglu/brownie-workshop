@@ -1,11 +1,12 @@
-#!/home/python/venv/main/bin/python
+from os import environ
+from src.contract_deployer import ContractDeployer
+from src.printer import Printer
+from src.config import Config
 
-from contract_deployer import ContractDeployer
-from printer import Printer
-from config import Config
+PYTHONPATH = environ.get("PYTHONPATH")
 
 
-def main():
+def deploy_contract():
     Printer.print("Starting…")
     Printer.print(Config.get_node_url())
 
@@ -14,6 +15,4 @@ def main():
     deployer.deploy(Config.get_node_url())
     deployer.publish(Config.get_artifacts_file_relpath())
 
-
-if __name__ == "__main__":
-    main()
+    return deployer.get_artifact()

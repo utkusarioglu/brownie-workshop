@@ -1,0 +1,1 @@
+docker -c u-Boulanger exec -it brownie-workshop-mongodb-community-server mongosh "mongodb://brownie-workshop-mongodb-community-server/admin" --eval 'db.createUser({user: "celery_worker", pwd: "celery_worker", roles: [{role: "readWrite", db: "celery"}]})'

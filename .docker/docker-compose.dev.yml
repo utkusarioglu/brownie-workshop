@@ -25,9 +25,16 @@ services:
     volumes:
       - type: bind
         source: ../config/mongodb
-        target: /config
-    environment:
-      - MONGODB_INITDB_ROOT_USERNAME_FILE=/config/MONGODB_INITDB_ROOT_USERNAME_FILE
-      - MONGODB_INITDB_ROOT_PASSWORD_FILE=/config/MONGODB_INITDB_ROOT_PASSWORD_FILE
+        target: /mongo_config
+      - type: volume
+        source: mongodb-community-server-data
+        target: /data/db
+    # environment:
+    #   - MONGODB_INITDB_ROOT_USERNAME_FILE=/mongo_config/USERNAME
+    #   - MONGODB_INITDB_ROOT_PASSWORD_FILE=/mongo_config/PASSWORD
     ports:
       - 27017:27017
+
+volumes:
+  mongodb-community-server-data:
+    name: brownie-workshop-mongodb-community-server-data

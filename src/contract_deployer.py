@@ -10,9 +10,10 @@ class ContractDeployer:
         self.identifier = f"{source_relpath}:{contract_name}"
 
     def compile(self):
-        self.compiled = compile_files(
+        compiled = compile_files(
             source_files=[self.source_relpath], output_values=["abi", "bin"]
-        )[self.identifier]
+        )
+        self.compiled = compiled[self.identifier]
 
     def deploy(self, node_url: str) -> None:
         web3 = Web3(Web3.HTTPProvider(node_url))
@@ -28,9 +29,13 @@ class ContractDeployer:
 
     def publish(self, publish_path: str) -> None:
         with open(publish_path, "w+") as artifact_file:
-            artifact = {
-                "address": self.contract_address,
-                "abi": self.compiled["abi"],
-                "bin": self.compiled["bin"],
-            }
+            artifact = self.get_artifact()
             artifact_file.write(dumps(artifact))
+
+    def get_artifact(self):
+        artifact = {
+            "address": self.contract_address,
+            "abi": self.compiled["abi"],
+            "bin": self.compiled["bin"],
+        }
+        return artifact
