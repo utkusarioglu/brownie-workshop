@@ -1,6 +1,6 @@
 #!/home/python/venv/main/bin/python
 
-from get_sepolia_transactions import main
+from ._other.get_sepolia_transactions import main
 
 
 def test_main():

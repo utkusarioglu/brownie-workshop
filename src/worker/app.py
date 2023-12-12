@@ -1,9 +1,9 @@
 from dotenv import load_dotenv
 from os import environ
 from celery import Celery
-from src.deploy import deploy_contract
-from src.get_value import get_value
-from src.set_value import set_value
+from .deploy import deploy_contract
+from .get_value import get_value
+from .set_value import set_value
 
 PYTHONPATH = environ.get("PYTHONPATH")
 

@@ -29,7 +29,7 @@ services:
       - type: volume
         source: mongodb-community-server-data
         target: /data/db
-    # environment:
+    # environment: 
     #   - MONGODB_INITDB_ROOT_USERNAME_FILE=/mongo_config/USERNAME
     #   - MONGODB_INITDB_ROOT_PASSWORD_FILE=/mongo_config/PASSWORD
     ports:

@@ -1,14 +1,17 @@
 #!/home/python/venv/main/bin/python
 
+from typing import Union
 from sys import argv
-from src.tasks import (
+from src.worker.app import (
     set_sample_value,
     get_sample_value,
     deploy_sample_contract,
 )
 
+Values = list[Union[int, str]]
 
-def main(command: str, values: any):
+
+def main(command: str, values: Values):
     match command:
         case "deploy":
             return deploy_sample_contract.delay()
@@ -20,5 +23,5 @@ def main(command: str, values: any):
 
 if __name__ == "__main__":
     command = argv[1]
-    values = [int(v) for v in argv[2:]]
+    values: Values = [int(v) for v in argv[2:]]
     main(command, values)

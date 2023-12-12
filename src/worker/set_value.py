@@ -1,4 +1,4 @@
-from src.instance import get_instance
+from .instance import get_instance
 
 
 def set_value(new_value: int) -> None:

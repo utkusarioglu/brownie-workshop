@@ -1,5 +1,5 @@
 from web3 import Web3
-from src.config import Config
+from ..config import Config
 
 
 def get_instance():
